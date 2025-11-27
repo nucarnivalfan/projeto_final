@@ -1,0 +1,3 @@
+﻿• Azul: #0000FF — azulzão puro, vibrante, aquele tom padrão.
+• Verde: #00FF00 — verde neon puro, bem limpo.
+• Amarelo: #FFFF00 — amarelo clássico, estilo marca-texto.
