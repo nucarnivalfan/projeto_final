@@ -4,9 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>document</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+
+<style>
+
+:root{ 
+    --fundo-claro:#fff;
+    --fundo-escuro:#000;
+    --botao-primario:#7d1ad4;
+    --botaoprimario-hover:#6e17b9;
+    --texto-claro:#000;
+    --texto-escuro:#fff;
+}
+
+[data-theme="dark"] {
+    --fundo-claro:#000;
+    --fundo-escuro:#fff;
+    --texto-claro:#fff;
+    --texto-escuro:#000;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--fundo-claro);
+    color: var(--texto-claro);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div{
+    background-color: var(--fundo-escuro);
+    color: var(--texto-escuro);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 0.9rem;
+}
+
+button{
+    background-color: var(--botao-primario);
+    color: var(--texto-escuro);
+    padding: 0.4rem;
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+        
+botton:hover{
+    background-color: var(--botaoprimario-hover);
+    transition: 0.8s;
+}
+        
+svg{
+    color: var(--texto-claro);
+    width: 34px;
+    height: 34px;
+}
+
+.material-symbols-rounded{
+    font-variation-settings: 'FILL'0,'wght'400,'GRAD'0,'opsz'48;
+    font-size: 34px;
+    color: var(--texto-claro);
+}
+        
+[data-theme="dark"] .material-symbols-roudend{
+    color:var(--texto-escuro);
+}
+
+</style>
 
 </head>
 <body>
+    <div>
+        <button id="btn-dark-mode"></button>
+    </div>
+
 
 <script src="js/script.js"></script>
 
