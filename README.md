@@ -5,9 +5,9 @@ Vamos a mais uma conquista na sua formação profissional !
 ---
 
 ## Integrantes
-** Quem é essa equipe massa !
+** Quem é essa equipe massa !**
 
-*Lilyth, Guilherme Firmino, Gustavo, Tarso, Rhuan, e Wilson.
+* Lilyth, Guilherme Firmino, Gustavo, Tarso, Rhuan, e Wilson.
 
 Preciso que faça uma auto biografia sobre ti, pensando com uma empresa pode contratar você.
 
