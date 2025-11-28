@@ -1,3 +1,27 @@
 ﻿• Azul: #0000FF — azulzão puro, vibrante, aquele tom padrão.
 • Verde: #00FF00 — verde neon puro, bem limpo.
 • Amarelo: #FFFF00 — amarelo clássico, estilo marca-texto.
+
+
+pac man
+fundo 
+preto #0000
+azul #0F1174
+amarelo pac man 
+#FBFC08
+fantasma
+azul #13AFE4
+vermelho #ED080D
+rosa #F59EB7
+laranja #F08708
+
+super mario bross
+céu  #6393FF
+Chão #EE6B0E
+arvore do cenário #08AD09
+
+donkei kong
+fundo #0000
+#BB1571 obstáculo do jogo
+
+
