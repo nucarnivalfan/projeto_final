@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2c3e50;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#score {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#pongGame {
+    border: 3px white;
+    background-color: black;
+    user-select: none;
+}
+
+#resetButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1. 1em;
+    cursor: pointer;
+    background-color: 3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#resetButton:hover {
+    background-color: #2980b9;
+}
