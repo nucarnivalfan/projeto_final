@@ -1,59 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Game</title>
+    <title>Ping Pong</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<link rei="stylesheet" href="/assets/css/style.css">
-<link rel="shortcut icon" href="/favicon.png" type="ícone de console">
 <body>
-    
-    <div class="container">
-        <div class="imagem-topo"><img src="" alt="" width="200" height="100px"></div>
-    </div>
-    <button class="menu" onclick="playhihi()">Menu</button>
-    <div class="funcionar">
-        <h2> Apresentação </h2>
-    </div>
-    <div class="search-bar-container">
-        <input type="text" id="searchinput" placeholder="pesquisar">
-        <button onclick="searchgames()"></button>
-    </div>
-    <div class="jogo" onclick="abrirjogo">
-        <img src="" alt="" width="" height="">
+    <div class="game-contaoner">
+        <div id="score">0 - 0</div>
+        <canvas id="pongGame" width="600" height="400"></canvas>
 
-         <div class="jogo" onclick="abrirjogo">
-        <img src="" alt="" width="" height="">
-
-         <div class="jogo" onclick="abrirjogo">
-        <img src="" alt="" width="" height="">
-
-    </div>
-
-    <div class="creative-section">
-        <h2> Não enontrou o que proucurava?</h2>
-        <p> explore nossas recomendações!</p>
-        <div class="recomendation-cards">
-            <div class="card"></div>
-            <h3>recomendações</h3>
-            <p>Suguestões baseadas nos seus favoritos.</p>
-            <a href="#" class="btn">Ver mais</a>
-                </div>
-                <div class="card">
-                    <h3>Lançamentos</h3>
-                    <p>Fique por dentro das novidades!</p>
-                    <a href="#" class="btn">Conferir</a>
-                </div>
-                <div class="card">
-                    <h3> Jogos Clássicos</h3>
-                    <p> Reviva os jogos que marcaram época</p>
-                    <a href="#" class="btn">Explorar</a>
-                </div>
-                <p class="call-to-action">Sua jornada começa aqui!</p>
-                </div>
-                <audio id="hihi-audio" src=""></audio>   
-    </div>
+        <button id="resetButton">Reiniciar Jogo</button>
+        </div>
+        <script src="script.js"></script>
 </body>
-<sript src="sript.js"></sript>
 </html>
