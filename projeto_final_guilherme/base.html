@@ -10,28 +10,29 @@
 
 <style>
 
-:root{ 
-    --fundo-claro:#fff;
-    --fundo-escuro:#000;
-    --botao-primario:#7d1ad4;
-    --botaoprimario-hover:#6e17b9;
-    --texto-claro:#000;
-    --texto-escuro:#fff;
+ :root {
+    --fundo-claro: #ffffff;
+    --fundo-escuro: #000000;
+    --botao-primario: #7d1ad4;
+    --botao-primario-hover: #6e17b9;
+    --texto-claro: #000;
+ 
 }
 
 [data-theme="dark"] {
-    --fundo-claro:#000;
-    --fundo-escuro:#fff;
-    --texto-claro:#fff;
-    --texto-escuro:#000;
+    --fundo-claro: #000000;
+    --fundo-escuro: #fff;
+    --texto-claro: #000;
+    --texto-escuro: #fff;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+body {
     background-color: var(--fundo-claro);
     color: var(--texto-claro);
     min-height: 100vh;
@@ -40,7 +41,7 @@ body{
     align-items: center;
 }
 
-div{
+div {
     background-color: var(--fundo-escuro);
     color: var(--texto-escuro);
     display: flex;
@@ -51,7 +52,7 @@ div{
     border-radius: 0.9rem;
 }
 
-button{
+button {
     background-color: var(--botao-primario);
     color: var(--texto-escuro);
     padding: 0.4rem;
@@ -64,38 +65,76 @@ button{
     align-items: center;
     justify-content: center;
 }
-        
-botton:hover{
-    background-color: var(--botaoprimario-hover);
+
+button:hover {
+    background-color: var(--botao-primario-hover);
     transition: 0.8s;
 }
-        
-svg{
-    color: var(--texto-claro);
-    width: 34px;
-    height: 34px;
-}
 
-.material-symbols-rounded{
-    font-variation-settings: 'FILL'0,'wght'400,'GRAD'0,'opsz'48;
+.material-symbols-rounded {
+    font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
     font-size: 34px;
     color: var(--texto-claro);
 }
-        
-[data-theme="dark"] .material-symbols-roudend{
-    color:var(--texto-escuro);
+
+[data-theme="dark"] .material-symbols-rounded {
+    color: var(--texto-escuro);
 }
 
 </style>
 
 </head>
 <body>
-    <div>
+    <div id="itens">
         <button id="btn-dark-mode"></button>
     </div>
 
+    
+<script>
 
-<script src="js/script.js"></script>
+window.alert ('ola, seja bem vindo');
+
+function mudarTamanho() {
+    if (window.innerWidth >=768) {
+        itens.style.display = 'inline-block'
+    } else {
+        itens.style.display = 'none'
+    }
+}
+
+function clickMenu() {
+    if (itens.style.display == 'block') {
+        itens.style.display = 'none'
+    } else {
+        itens.style.display = 'block'
+    }
+}
+
+const btnDarkMode = document.getElementById('btn-dark-mode');
+
+const themeSystem = localStorage.getItem('themeSystem') || 'light';
+
+btnDarkMode.addEventListener('click',() => {
+    let oldTheme = localStorage.getItem('themeSystem') || 'light';
+    let newTheme =oldTheme === "light" ? "dark" :"light";
+    localStorage.setItem('themeSystem', newTheme);
+    defineCurrentTheme(newTheme);
+});
+
+function defineCurrentTheme(theme) {
+    const darkIcon = '<span class="material-symbols-rounded">dark_mode</span>';
+    const lightIcon = '<span class="material-symbols-rounded">light_mode</span>';
+    document.documentElement.setAttribute("data-theme",theme);
+        if  (theme === "light") {
+            btnDarkMode.innerHTML = darkIcon;
+          return;
+        }
+    btnDarkMode.innerHTML = lightIcon;
+}
+
+defineCurrentTheme(themeSystem);
+
+</script>
 
 </body>
 
