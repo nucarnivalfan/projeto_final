@@ -1,9 +1,8 @@
-const canvas = document.getElementById('pongGame');
+const canvas = document.getElementById('pongCanvas');
 const ctx = canvas.getContext('2d');
-const scoreDisplay = document.getElementById('score');
 
-const WIDTH = canvas.width;
-const HEIGHT = canvas.height;
+const W = canvas.width;
+const H = canvas.height;
 
 const PADDLE_WIDTH = 10;
 const PADDLE_HEIGHT = 80;
