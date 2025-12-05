@@ -35,6 +35,10 @@ e sim todos devem pensar em como apresentar a continuação do outro.
 * Lilyth(eu); irei ajudar com o style, e o css(a segunda parte)  
 * Rhuan; também será responsável pelo style e o css(a "cabeça" do projeto).
 
+• Azul: #0000FF — azulzão puro, vibrante, aquele tom padrão.
+• Verde: #00FF00 — verde neon puro, bem limpo.
+• Amarelo: #FFFF00 — amarelo clássico, estilo marca-texto.
+
 * **Veja** que o Projeto não reponsabilidade de um mas sim de todos, um cuidando do outro!
 
 **Pronto para conquistar seu merito ? #BoraCodar** ✨
