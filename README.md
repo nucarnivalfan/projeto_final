@@ -1,42 +1,63 @@
-# ⛰️ Projeto Final!
+# 🏆 Projeto Final: [Nome do Projeto Aqui]
 
-Vamos a mais uma conquista na sua formação profissional !
-
----
-
-## Integrantes
-**Quem é essa equipe massa !
-
-* Lilyth, Guilherme Firmino, Gustavo, Tarso, Rhuan, e Wilson.
-
-Preciso que faça uma auto biografia sobre ti, pensando com uma empresa pode contratar você.
-* **Lembre** do seu Portifolio e como suas hard e soft skill's pode ajudar e Lembre-se do Hikigai!
-* 
-Lilyth:  Olá! Meu nome é Lilyth Cristina, tenho 15 anos e estudo na escola Miguel Munhoz. Sou apaixonada por ates cômicas e musica. Faço curso de violão, também fiz diversos cursos envolvendo a arte(musica, dança, etc...). Trabalho bem em grupo, a maioria das vezes sou a parte da organização.
-Tenho interesse em trabalhar na Le Novo, atualmente estou fazendo o curso de violão, inglês e web design. Meu objetivo é fazer a faculdade de biologia, para ganhar o diploma de zoologia. 
-Guilherme f: sou alguém que sempre gosto de aprender coisas novas e experimentar novas formas de evoluir pessoalmente, estou cursando o curso de web design como o resto do grupo.
-Gustavo: Sou Gustavo Rodrigues, conhecido como Zecaa, tenho 17 anos e estou estudando Web Design. Gosto muito da área de tecnologia e tenho facilidade para mexer em configurações de celulares e, de forma intermediária, em notebooks. No curso, já participei de projetos em grupo, como um quebra-cabeça digital e o design para uma farmácia, onde aprendi mais sobre criação e trabalho em equipe Sou dedicado, curioso e sempre disposto a melhorar. Meu maior objetivo é conseguir um bom trabalho e proporcionar uma vida melhor para minha família, crescendo tanto profissionalmente quanto pessoalmente.
----
-
-## Tema do Projeto
-** Como em 3 minutos podemos entender seu Projeto !
-Pense como foi criar com seus colegas de sala para ser algo divertido e facil de fazer, sem muita pressão ou cobrança
-
-
-
-
-* **Precisa** ser algo simples de ler e sem muitas perguntas, Combinado!
-  
+Vamos a mais uma conquista na sua formação profissional! Este documento resume a estrutura da nossa equipe, o escopo do projeto e a divisão de tarefas.
 
 ---
 
-## Divisão de tarefas
-** Quem ira ser responsavel por partes do projeto?
-Wilson
-Não será escrito na pedra! Mas precisamos saber quem cuidou de cada parte e o "Segurar a cartolina" Não é parte das tarefas
-e sim todos devem pensar em como apresentar a continuação do outro.
-Guilherme; responsavel pelo Javascript, Tarso; paleta de cor e layout, Gustavo: será responsável pelas imagens, Wilson; será responsavel pelo html e css, Lilyth(eu); irei ajudar com o style,  Rhuan; também será responsável pelo style.
+## 👥 Integrantes: Quem Faz Acontecer
 
-* **Veja** que o Projeto não reponsabilidade de um mas sim de todos, um cuidando do outro!
+**Apresentação da equipe e das habilidades-chave de cada membro:**
 
-**Pronto para conquistar seu merito ? #BoraCodar** ✨
+* **Lilyth Cristina:** Olá! Meu nome é Lilyth Cristina, tenho 15 anos e estudo na escola Miguel Munhoz. Sou apaixonada por artes cômicas e música. Faço curso de violão, e fiz diversos cursos envolvendo a arte (música, dança, etc...). Trabalho bem em grupo, sendo a **parte da organização** na maioria das vezes. Tenho interesse em trabalhar na **Lenovo** e atualmente estou fazendo o curso de violão, inglês e web design. Meu objetivo é fazer a faculdade de biologia, para ganhar o diploma de zoologia. 
+    * *Melhoria Profissional:* Destacar a soft skill de **organização** e a paixão por áreas que exigem **criatividade** e **disciplina** (música/arte). O interesse em Web Design e na Lenovo são ótimos pontos.
+
+* **Guilherme Firmino:** Sou alguém que sempre gosto de **aprender coisas novas** e experimentar novas formas de evoluir pessoalmente. Estou cursando o curso de web design, focado em adquirir conhecimento prático.
+    * *Melhoria Profissional:* Destacar a **curiosidade** e a **mentalidade de crescimento** (growth mindset), essenciais para a área de tecnologia.
+
+* **Gustavo Rodrigues (Zecaa):** Sou Gustavo Rodrigues, conhecido como Zecaa, tenho 17 anos e estou estudando Web Design. Gosto muito da área de tecnologia e tenho facilidade para mexer em configurações de celulares e, de forma intermediária, em notebooks. No curso, já participei de projetos em grupo, como um quebra-cabeça digital e o design para uma farmácia, onde aprendi mais sobre **criação e trabalho em equipe**. Sou **dedicado**, **curioso** e sempre disposto a melhorar. Meu maior objetivo é conseguir um bom trabalho e proporcionar uma vida melhor para minha família, crescendo tanto profissionalmente quanto pessoalmente.
+    * *Melhoria Profissional:* **Excelente detalhamento!** Mantenha o foco nos projetos concluídos (*quebra-cabeça digital*, *design para farmácia*) e nas *soft skills* (dedicação, curiosidade, trabalho em equipe).
+
+* **Tarso:** *Adicionar uma breve descrição focada em habilidades técnicas ou comportamentais, como a paixão por design ou a habilidade em solução de problemas.*
+
+* **Rhuan:** *Adicionar uma breve descrição focada em habilidades técnicas ou comportamentais, como a atenção aos detalhes ou a habilidade de pesquisa.*
+
+* **Wilson:** *Adicionar uma breve descrição focada em habilidades técnicas ou comportamentais, como a capacidade de estruturar o código ou a liderança em tarefas.*
+
+---
+
+## 🎯 Tema do Projeto: O que Entregamos em 3 Minutos
+
+**Resumo conciso e empolgante do seu projeto:**
+
+Pense em como foi criar com seus colegas de sala para ser algo divertido e fácil de fazer, sem muita pressão ou cobrança.
+
+* **Nosso Projeto:** [Insira o nome do seu projeto aqui. Ex: "Landing Page Interativa para Divulgação de Jogos Retro"].
+* **A Ideia:** [Descreva o conceito de forma simples. Ex: Criamos uma página com foco em UX/UI minimalista para demonstrar nossos conhecimentos em HTML, CSS (layout responsivo) e JavaScript (filtragem de conteúdo).]
+* **O Diferencial:** [Fale sobre o que torna o projeto especial. Ex: A usabilidade intuitiva e o tema visualmente atraente do mundo retrô.]
+
+*O resumo deve ser o "pitch" que a equipe faria em 3 minutos. Seja direto, combinando a tecnologia utilizada com o resultado visual/funcional.*
+
+---
+
+## 🗺️ Divisão de Tarefas: O Processo Colaborativo
+
+**Quem fez o quê, enfatizando a interdependência e o cuidado mútuo:**
+
+| Integrante | Função Principal | Hard Skills (O que fez) | Soft Skills (Como ajudou) |
+| :--- | :--- | :--- | :--- |
+| **Guilherme** | Lógica e Interatividade | Desenvolvimento do **JavaScript** (filtros, funções, eventos). | Garantir a funcionalidade e a experiência de usuário. |
+| **Tarso** | Design e Estética | Definição da **Paleta de Cor** e do **Layout** (estrutura visual). | Manter a consistência visual do projeto. |
+| **Gustavo** | Mídia e Conteúdo | Busca, edição e otimização das **Imagens** e ícones. | Assegurar a qualidade e o carregamento rápido dos ativos visuais. |
+| **Wilson** | Estrutura Base | Desenvolvimento da **Estrutura HTML** e do **CSS** fundamental. | Criação do alicerce para que todos pudessem construir. |
+| **Lilyth** | Refinamento Visual | Apoio no **Estilo/CSS** e na **Organização** do projeto. | Assegurar a coesão e o detalhe final do estilo. |
+| **Rhuan** | Refinamento Visual | Apoio no **Estilo/CSS** e na **Responsividade**. | Garantir que o design funcione bem em diferentes telas. |
+
+**Conclusão da Divisão:** "O sucesso do nosso projeto demonstra a fluidez e a interdependência da equipe. Cada um cuidou de sua parte sabendo que o trabalho do colega dependia da nossa entrega, fortalecendo a confiança mútua."
+
+---
+
+## #BoraCodar ✨
+
+*Lembre-se de preencher os espaços em branco com os nomes do seu projeto e as descrições em falta!*
+
+Gostaria de ajuda para detalhar a **biografia** de Tarso, Rhuan ou Wilson, ou para criar um **nome** e um **pitch** para o seu projeto?
