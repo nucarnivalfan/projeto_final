@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Biblioteca — Catálogo</title>
+  <meta name="description" content="Página de catálogo de uma biblioteca simples e moderna." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #94a3b8;
+      --accent: #60a5fa;
+      --accent-2: #7c3aed;
+      --glass: rgba(255,255,255,0.03);
+      --text: #e6eef8;
+      --radius: 14px;
+      --gap: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071022 0%, #061226 50%, #051026 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:var(--gap);
+    }
+
+    /* Header */
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:54px;
+      height:54px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      color:white;
+      box-shadow:0 6px 18px rgba(96,165,250,0.12);
+    }
+    .brand h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:0.2px;
+    }
+    .brand p{margin:0;font-size:13px;color:var(--muted)}
+
+    /* Search */
+    .searchbar{
+      flex:1;
+      margin-left:20px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .searchbar input[type="search"]{
+      width:100%;
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:var(--glass);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+      transition:box-shadow .18s ease;
+      box-shadow:0 2px 10px rgba(2,6,23,0.6) inset;
+    }
+    .searchbar input::placeholder{color:rgba(230,238,248,0.45)}
+    .searchbar button{
+      padding:10px 12px;
+      border-radius:10px;
+      border:0;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    /* Top area: filters + featured */
+    .top{
+      display:grid;
+      grid-template-columns: 260px 1fr;
+      gap:var(--gap);
+      align-items:start;
+    }
+
+    /* Sidebar filters */
+    aside.filters{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:18px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,0.03);
+      min-height:200px;
+    }
+    .filters h2{margin:0 0 12px 0;font-size:15px}
+    .category-list{display:flex;flex-direction:column;gap:8px}
+    .chip{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:14px;
+      color:var(--muted);
+      transition: all .15s ease;
+      border:1px solid transparent;
+    }
+    .chip:hover{transform:translateY(-3px)}
+    .chip.active{
+      color:white;
+      background:linear-gradient(90deg, rgba(96,165,250,0.12), rgba(124,58,237,0.08));
+      border:1px solid rgba(96,165,250,0.12);
+      box-shadow:0 6px 18px rgba(7,18,45,0.6);
+    }
+
+    /* Featured banner */
+    .featured{
+      background:
+        linear-gradient(90deg, rgba(124,58,237,0.08), rgba(96,165,250,0.06)),
+        linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      padding:18px;
+      border-radius:var(--radius);
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .featured .info h3{margin:0;font-size:18px}
+    .featured .info p{margin:6px 0 0 0;color:var(--muted)}
+    .featured img{
+      width:120px;
+      height:150px;
+      object-fit:cover;
+      border-radius:8px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.6);
+    }
+
+    /* Book grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+    }
+    /* MODIFICAÇÃO: 'book' agora estiliza o <a> */
+    a.book{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:14px;
+      border-radius:12px;
+      display:flex;
+      gap:12px;
+      border:1px solid rgba(255,255,255,0.02);
+      transition: transform .15s ease, box-shadow .15s ease;
+      align-items:flex-start;
+      text-decoration: none; /* Remove sublinhado padrão do link */
+      color: inherit; /* Garante que o texto dentro do link herde a cor correta */
+    }
+    a.book:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(2,6,23,0.7);
+    }
+    .cover{
+      width:84px;
+      height:120px;
+      flex-shrink:0;
+      border-radius:6px;
+      overflow:hidden;
+      background:#111827;
+    }
+    .cover img{width:100%;height:100%;object-fit:cover;display:block}
+    .meta{flex:1}
+    .meta h4{margin:0 0 6px 0;font-size:15px}
+    .meta p{margin:0;color:var(--muted);font-size:13px}
+    .meta .tags{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:12px;color:var(--muted)}
+
+    /* Controls: sort, pagination */
+    .controls{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-top:8px;
+    }
+    .controls .left{color:var(--muted);font-size:13px}
+    .controls select{
+      background:transparent;color:var(--text);
+      padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+      outline:none;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:22px;
+      padding:14px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .top{grid-template-columns: 1fr}
+      .grid{grid-template-columns: repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      body{padding:18px}
+      header{flex-direction:column;align-items:stretch;gap:12px}
+      .searchbar{margin-left:0}
+      .grid{grid-template-columns: 1fr}
+      .featured img{display:none}
+      .brand h1{font-size:16px}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container" id="app">
+    <header>
+      <div class="brand">
+        <div class="logo">B</div>
+        <div>
+          <h1>Biblioteca test</h1>
+          <p>tudo sobre jogos antigos</p>
+        </div>
+      </div>
+
+      <div class="searchbar" role="search" aria-label="Busca de livros">
+        <input id="searchInput" type="search" placeholder="Busque por título, autor ou categoria..." aria-label="Pesquisar livros"/>
+        <button id="searchBtn" aria-label="Pesquisar">Buscar</button>
+      </div>
+    </header>
+
+    <div class="top">
+      <aside class="filters" aria-label="Filtros de categoria">
+        <h2>Categorias</h2>
+        <div class="category-list" id="categoryList">
+          <div class="chip active" data-cat="todos">Todos jogos</div>
+          <div class="chip" data-cat="super-mario">Super Mario bros</div>
+          <div class="chip" data-cat="mario-64">Mario 64</div>
+          <div class="chip" data-cat="donkey-kong">Donkey Kong</div>
+          <div class="chip" data-cat="metal-slug">Metal Slug</div>
+          <div class="chip" data-cat="mortal-kombat">Mortal Kombat</div>
+          <div class="chip" data-cat="sonic">Sonic</div>
+          <div class="chip" data-cat="zelda">Zelda</div>
+          <div class="chip" data-cat="street-fighter">Street Fighter II</div>
+          <div class="chip" data-cat="pac-man">Pac-Man</div>
+          <div class="chip" data-cat="crash-bandicoot">Crash Bandicoot</div>
+          <div class="chip" data-cat="super-mario-world">Super Mario World</div>
+          <div class="chip" data-cat="kirbys-adventure">Kirby's Adventure</div>
+          <div class="chip" data-cat="tekken-3">Tekken 3</div>
+          <div class="chip" data-cat="streets of rage">streets of rage</div>
+          <div class="chip" data-cat="teenage mutant ninja turtles">teenage mutant ninja turtles</div>
+          <div class="chip" data-cat="Ninja gaiden">Ninja gaiden</div>
+          <div class="chip" data-cat="Gta san andreas">Gta san andreas</div>
+          <div class="chip" data-cat="God of war">God of war</div>
+          <div class="chip" data-cat="Black">Black</div>
+          <div class="chip" data-cat="Need for Speed Most Wanted">Need for Speed Most Wanted</div>
+          <div class="chip" data-cat="Gran turismo 4">Gran turismo 4</div>
+          <div class="chip" data-cat="OutRun">OutRun</div>
+          <div class="chip" data-cat="Tetris">Tetris</div>
+          <div class="chip" data-cat="space invaders">space invaders</div>
+          
+        </div>
+
+
+        <div style="margin:12px 0;border-top:1px solid rgba(255,255,255,0.02)"></div>
+        <div>
+          <h2>Filtrar por</h2>
+          <p style="color:var(--muted);font-size:13px;margin:6px 0 0">Use a busca para procurar por título ou autor. Clique em uma categoria para filtrar.</p>
+        </div>
+      </aside>
+
+     <main>
+        <section class="featured" aria-label="Destaque">
+          <div class="info">
+            <h3>Destaque do mês: Mortal Kombat</h3>
+            <p>Jogos Antigos: Confira todos os jogos</p>
+          </div>
+          <img src="https://preview.redd.it/mortal-kombat-in-the-90s-1992-1997-v0-llast0j5p0a81.jpg?width=640&crop=smart&auto=webp&s=44b66de7b7970adf9d9bbf2d72aa9b07f2d5f9df" alt="Capa do jogo Mortal Kombat"/>
+        </section>
+
+        <div class="controls" style="margin-top:14px">
+          <div class="left" id="resultCount">Exibindo 0 jogos</div>
+          <div class="right">
+            <label for="sortSelect" style="color:var(--muted);margin-right:8px">Ordenar:</label>
+            <select id="sortSelect" aria-label="Ordenar livros">
+              <option value="title">Título (A–Z)</option>
+              <option value="author">Autor/Desenvolvedora</option>
+            </select>
+          </div>
+        </div>
+
+        <section style="margin-top:12px">
+          <div class="grid" id="booksGrid" aria-live="polite">
+            </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Biblioteca Municipal de jogos-retrogames games
+    </footer>
+  </div>
+
+  <script>
+  const booksGrid = document.getElementById('booksGrid');
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  const categoryList = document.getElementById('categoryList');
+  const resultCount = document.getElementById('resultCount');
+  const sortSelect = document.getElementById('sortSelect');
+  const yearSpan = document.getElementById('year');
+  yearSpan.textContent = new Date().getFullYear();
+
+  let activeCategory = 'todos';
+  let query = '';
+  let sortBy = 'title'; // Corrigido para 'title'
+
+  /* ---- LISTA DE JOGOS (EXEMPLO) ---- */
+  // As categorias foram ajustadas para bater com o data-cat do HTML.
+  const games = [
+    {
+      title: "Super Mario Bros",
+      author: "Nintendo",
+      category: "super-mario",
+      cover: "https://upload.wikimedia.org/wikipedia/pt/thumb/0/03/Super_Mario_Bros._box.png/280px-Super_Mario_Bros._box.png",
+      link: "https://pt.wikipedia.org/wiki/Super_Mario_Bros." // Link de exemplo
+    },
+    {
+      title: "Super Mario 64",
+      author: "Nintendo",
+      category: "mario-64",
+      cover: "https://dcdn-us.mitiendanube.com/stores/002/352/395/products/d_nq_np_2x_619092-mlb43669162009-e86628f990ef1d242117211614924881-1024-1024.webp",
+      link: "https://pt.wikipedia.org/wiki/Super_Mario_64" // Link de exemplo
+    },
+    {
+      title: "Donkey Kong Country",
+      author: "Nintendo",
+      category: "donkey-kong",
+      cover: "https://m.media-amazon.com/images/I/61Odr+15NrL._AC_SX679_.jpg",
+      link: "https://pt.wikipedia.org/wiki/Donkey_Kong_Country" // Link de exemplo
+    },
+    {
+      title: "Metal Slug",
+      author: "SNK",
+      category: "metal-slug",
+      cover: "https://assets-prd.ignimgs.com/2022/07/09/metalslugx-1657389500057.jpg?crop=1%3A1%2Csmart&format=jpg&auto=webp&quality=80",
+      link: "https://pt.wikipedia.org/wiki/Metal_Slug" // Link de exemplo
+    },
+    {
+      title: "Mortal Kombat",
+      author: "Midway",
+      category: "mortal-kombat",
+      cover: "https://notadogame.com/uploads/game/cover/250x/5bfdc35cb618c.jpg",
+      link: "https://pt.wikipedia.org/wiki/Mortal_Kombat_(jogo_eletr%C3%B4nico_de_1992)" // Link de exemplo
+    },
+    {
+      title: "Sonic The Hedgehog",
+      author: "Sega",
+      category: "sonic",
+      cover: "https://preview.redd.it/on-this-day-33-years-ago-sonic-the-heagehog-video-game-was-v0-7zjn7cr8u98d1.jpeg?width=640&crop=smart&auto=webp&s=271faa5cd8a7e8afdd57f2e15741107ddf1192be",
+      link: "https://pt.wikipedia.org/wiki/Sonic_the_Hedgehog_(jogo_eletr%C3%B4nico_de_1991)" // Link de exemplo
+    },
+    {
+      title: "The Legend of Zelda",
+      author: "Nintendo",
+      category: "zelda",
+      cover: "https://upload.wikimedia.org/wikipedia/pt/7/7a/The_Legend_of_Zelda_Skyward_Sword_capa.png",
+      link: "https://pt.wikipedia.org/wiki/The_Legend_of_Zelda" // Link de exemplo
+    },
+     {
+      title: "Street Fighter II",
+      author: "Capcom", // Mudado para Capcom, mais correto.
+      category: "street-fighter",
+      cover: "https://upload.wikimedia.org/wikipedia/pt/0/04/Flyer_japan_sf2.jpg",
+      link: "https://pt.wikipedia.org/wiki/Street_Fighter_II:_The_World_Warrior" // Link de exemplo
+    },
+    {
+      title: "Pac-Man",
+      author: "Namco", // Mudado para Namco, mais correto.
+      category: "pac-man",
+      cover: "https://silverballmuseum.com/wp-content/uploads/2016/06/pac-man.jpg",
+      link: "https://pt.wikipedia.org/wiki/Pac-Man" // Link de exemplo
+    },
+     {
+      title: "Crash Bandicoot",
+      author: "Naughty Dog", // Mudado para Naughty Dog, mais correto.
+      category: "crash-bandicoot",
+      cover: "https://upload.wikimedia.org/wikipedia/pt/d/dd/Crash_Bandicoot_1_capa.png",
+      link: "https://pt.wikipedia.org/wiki/Crash_Bandicoot_(jogo)" // Link de exemplo
+    },
+    {
+      title: "Super Mario World",
+      author: "Nintendo",
+      category: "super-mario-world",
+      cover: "https://i.pinimg.com/736x/3b/a7/12/3ba71228cd6f029b7b36cccc4a0cdb35.jpg",
+      link: "https://pt.wikipedia.org/wiki/Super_Mario_World" // Link de exemplo
+    },
+    {
+      title: "Kirby's Adventure",
+      author: "Nintendo",
+      category: "kirbys-adventure",
+      cover: "https://i.pinimg.com/736x/d3/84/bd/d384bd24a649fe5ab8f2bbc38799b4ed.jpg",
+      link: "https://pt.wikipedia.org/wiki/Kirby%27s_Adventure" // Link de exemplo
+    },
+    {
+      title: "Tekken 3",
+      author: "Namco",
+      category: "tekken-3",
+      cover: "https://i.pinimg.com/736x/00/44/16/004416605e209cf214ece2216d166167.jpg",
+      link: "https://pt.wikipedia.org/wiki/Tekken_3" // Link de exemplo
+    },
+    {
+      title: "streets of rage",
+      author: "sega genesis",
+      category: "streets of rage",
+      cover: "https://i.pinimg.com/736x/9e/7b/50/9e7b5081be09c7db1ba8870060fed3a7.jpg",
+      link: "https://pt.wikipedia.org/wiki/Streets_of_Rage" // Link de exemplo
+    },
+    {
+      title: "teenage mutant ninja turtles",
+      author: "playstation 2",
+      category: "teenage mutant ninja turtles",
+      cover: "https://i.pinimg.com/1200x/aa/2c/54/aa2c5499808ca4f5198183eaea3ac555.jpg",
+      link: "https://en.wikipedia.org/wiki/Teenage_Mutant_Ninja_Turtles_(2003_video_game)" // Link de exemplo (em inglês, pois a busca em português é complexa)
+    },
+    {
+      title: "Ninja gaiden",
+      author: "Nintendo",
+      category: "Ninja gaiden",
+      cover: "https://i.pinimg.com/736x/aa/a3/c0/aaa3c034da3aaaf747881a3aa7644cd5.jpg",
+      link: "https://pt.wikipedia.org/wiki/Ninja_Gaiden_(s%C3%A9rie)" // Link de exemplo
+    },
+    {
+      title: "Gta san andreas e Vice city",
+      author: "playstation 2",
+      category: "Gta san andreas",
+      cover: "https://i.pinimg.com/736x/e6/df/57/e6df57c92a1feacb425aa33c0850ec21.jpg",
+      link: "https://pt.wikipedia.org/wiki/Grand_Theft_Auto:_San_Andreas" // Link de exemplo
+    },
+     {
+      title: "God of war",
+      author: "playstation 2",
+      category: "God of war",
+      cover: "https://i.pinimg.com/736x/91/77/15/917715f0f463d89428b1cdca04454377.jpg",
+      link: "https://pt.wikipedia.org/wiki/God_of_War_(jogo_eletr%C3%B4nico_de_2005)" // Link de exemplo
+    },
+    {
+      title: "Black",
+      author: "playstation 2",
+      category: "Black",
+      cover: "https://i.pinimg.com/736x/f1/fb/69/f1fb69eacd9480dd3450f0018f5a9d1b.jpg",
+      link: "https://pt.wikipedia.org/wiki/Black_(jogo_eletr%C3%B4nico)" // Link de exemplo
+    },
+    {
+      title: "Need for Speed Most Wanted",
+      author: "playstation 2",
+      category: "Need for Speed Most Wanted",
+      cover: "https://i.pinimg.com/1200x/12/fb/58/12fb586e97dc1def5f4f09690fd29890.jpg",
+      link: "https://pt.wikipedia.org/wiki/Need_for_Speed:_Most_Wanted_(jogo_eletr%C3%B4nico_de_2005)" // Link de exemplo
+    },
+    {
+      title: "Gran turismo 4",
+      author: "playstation 2",
+      category: "Gran turismo 4",
+      cover: "https://i.pinimg.com/736x/72/31/18/723118d2bf8e16e8bd0f17203a8e764a.jpg",
+      link: "https://pt.wikipedia.org/wiki/Gran_Turismo_4" // Link de exemplo
+    },
+    {
+      title: "OutRun",
+      author: "mega drive",
+      category: "OutRun",
+      cover: "https://i.pinimg.com/736x/1c/85/8b/1c858ba18121b216456835d8966093ef.jpg",
+      link: "https://en.wikipedia.org/wiki/Out_Run" // Link de exemplo
+    },
+    {
+      title: "Tetris",
+      author: "nintendo",
+      category: "Tetris",
+      cover: "https://i.pinimg.com/736x/24/ae/59/24ae59e920f22ff92bca6a799332468f.jpg",
+      link: "https://en.wikipedia.org/wiki/Tetris" // Link de exemplo
+    },
+    {
+      title: "space invaders",
+      author: "nintendo",
+      category: "space invaders",
+      cover: "https://i.pinimg.com/1200x/de/15/0f/de150fdb0b744600e10ee7f7be13d808.jpg",
+      link: "https://en.wikipedia.org/wiki/Space_Invaders" // Link de exemplo
+    },
+  ];
+
+
+  /* ---- FUNÇÃO PARA RENDERIZAR ---- */
+  function renderBooks(list) {
+    booksGrid.innerHTML = "";
+    if (list.length === 0) {
+      booksGrid.innerHTML = '<p style="color:var(--muted)">Nenhum jogo encontrado.</p>';
+      resultCount.textContent = 'Exibindo 0 jogos';
+      return;
+    }
+
+    list.forEach(b => {
+      // MODIFICAÇÃO CHAVE: Usar <a> no lugar de <article>
+      const card = document.createElement("a");
+      // Adicionar a classe 'book' para manter o estilo
+      card.className = "book";
+      // Adicionar o link da nova página
+      card.href = b.link || "#"; // Use o link do objeto ou '#' se não houver
+      // Adicionar target="_blank" para abrir em nova aba
+      card.target = "_blank";
+      // Adicionar aria-label para acessibilidade
+      card.setAttribute('aria-label', `Ver detalhes de ${b.title}`);
+      
+      card.innerHTML = `
+        <div class="cover" role="img" aria-label="Capa do jogo ${b.title}"><img src="${b.cover}" alt="Capa do jogo ${b.title}"></div>
+        <div class="meta">
+          <h4>${b.title}</h4>
+          <p>Desenvolvedora: ${b.author}</p>
+          <div class="tags">
+            <span class="tag">${b.category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
+            <span class="tag">Disponível</span>
+          </div>
+        </div>
+      `;      
+      booksGrid.appendChild(card);
+    });
+
+    resultCount.textContent = `Exibindo ${list.length} jogos`;
+  }
+
+  /* ---- SISTEMA DE FILTRO E ORDENAÇÃO ---- */
+  function atualizarFiltro() {
+    let resultado = games.filter(g => {
+      let texto = query.toLowerCase();
+      let categoriaOK = activeCategory === "todos" || g.category === activeCategory;
+
+      // O filtro de busca agora é mais robusto, procurando em título, autor e categoria (padronizada)
+      return (
+        categoriaOK &&
+        (
+          g.title.toLowerCase().includes(texto) ||
+          g.author.toLowerCase().includes(texto) ||
+          g.category.toLowerCase().includes(texto)
+        )
+      );
+    });
+
+    // Lógica de Ordenação
+    resultado.sort((a, b) => {
+      let valA = a[sortBy].toLowerCase();
+      let valB = b[sortBy].toLowerCase();
+
+      if (valA < valB) return -1;
+      if (valA > valB) return 1;
+      return 0;
+    });
+
+    renderBooks(resultado);
+  }
+
+  /* ---- EVENTOS ---- */
+
+  // Buscar enquanto digita
+  searchInput.addEventListener("input", () => {
+    query = searchInput.value;
+    atualizarFiltro();
+  });
+
+  // Buscar clicando no botão (mantido, mas não essencial com o evento 'input')
+  searchBtn.addEventListener("click", () => {
+    query = searchInput.value;
+    atualizarFiltro();
+  });
+
+  // Filtro por categoria
+  categoryList.addEventListener("click", e => {
+    if (e.target.classList.contains("chip")) {
+      document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      e.target.classList.add("active");
+      activeCategory = e.target.getAttribute("data-cat");
+      atualizarFiltro();
+    }
+  });
+
+  // Ordenação
+  sortSelect.addEventListener("change", (e) => {
+    sortBy = e.target.value;
+    atualizarFiltro();
+  });
+
+  // Inicia mostrando tudo
+  atualizarFiltro();
+</script>
+
+ 
+</body>
+</html>
